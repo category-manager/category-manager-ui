@@ -1,0 +1,31 @@
+<div class="flex-flow-column">
+    <app-search-results class="search-result-container-1 scroll-container" hidden>
+
+    </app-search-results>
+    <label>Root Categories</label>
+    <div class="flex-flow-row container-1 scroll-container">
+        <!-- This is where your root categories go -->
+        <div *ngFor="let rootCat of groupedCategories.rootCategories;" class="category-li">
+            <li><a href="/{{rootCat}}" target="_blank">{{ rootCat }}</a></li>
+        </div>
+    </div>
+    <label>Linked Categories</label>
+    <div class="flex-flow-row container-1 scroll-container">
+        <!-- This is where your linked categories go -->
+        <div *ngFor="let linkedCat of groupedCategories.linkedCategories;" class="category-li">
+            <li><a href="/{{linkedCat}}" target="_blank">{{ linkedCat }}</a></li>
+        </div>
+    </div>
+    <label>Unlinked Categories</label>
+    <div class="flex-flow-row container-1 scroll-container">
+        <!-- This is where your unlinked categories go -->
+        <div *ngFor="let unlinkedCat of groupedCategories.unlinkedCategories;" class="category-li">
+            <li><a href="/{{unlinkedCat}}" target="_blank">{{ unlinkedCat }}</a></li>
+        </div>
+    </div>
+    <label>Realtime operations</label>
+    <div class="container-2 flex-flow-row">
+        <button class="button-margin button-style" type="button">Add new Category</button>
+        <button class="button-margin button-style" type="button">Delete Category</button>
+    </div>
+</div>

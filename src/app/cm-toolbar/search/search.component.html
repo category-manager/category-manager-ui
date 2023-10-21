@@ -1,0 +1,15 @@
+<div>
+    <div class="flex-flow-row search-items">
+        <div class="search-bar-container">
+            <input (keydown)="onType($event)" class="search-bar" type="text" placeholder="enter category name" #searchInput/>
+            <div *ngIf="!isHideSuggestBox" class="search-bar-ol scroll-container">
+                <div *ngFor="let suggestion of suggestions;let idx = index">
+                    <li (click)="onSelect($event, idx)">{{ suggestion }}</li>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="search-button">search</button>
+        </div>
+    </div>
+</div>
