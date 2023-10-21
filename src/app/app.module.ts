@@ -7,10 +7,13 @@ import { CmMainModule } from './cm-main/cm-main.module';
 import { CmToolbarModule } from './cm-toolbar/cm-toolbar.module';
 import { CmTreeViewModule } from './cm-tree-view/cm-tree-view.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { HomeLayoutComponent } from './home-layout/home-layout.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeLayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     CmMainModule,
     CmToolbarModule,
-    CmTreeViewModule
+    CmTreeViewModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

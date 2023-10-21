@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CmHomePageComponent } from './cm-home-page/cm-home-page.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     SearchResultsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     CmHomePageComponent,
