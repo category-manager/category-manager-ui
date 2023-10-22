@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-home-layout',
@@ -7,4 +7,26 @@ import { Component } from '@angular/core';
 })
 export class HomeLayoutComponent {
 
+  prop: any;
+  showModal: boolean = false;
+  viewNumber: number = 0; // CREATE: 0, DELETE: 1, UPDATE: 2
+
+  toggleView(propArray: any) {
+    console.log('toggle called');
+    
+    this.showModal = propArray[0];
+    this.viewNumber = propArray[1];
+  } 
+
+  // BELOW FUNCTION CAPTURES EVENT FROM 'CM-HOME-PAGE' CHILD-COMPONENT.
+  setModalData(prop: any) {
+    console.log('modal data set in HomeLayout');
+    this.prop = prop;
+    this.toggleView(prop);
+  }
+
+    // BELOW FUNCTION CAPTURES EVENT FROM 'MODAL-POPUP' CHILD-COMPONENT.
+    setModalView(showModal: boolean) {
+      this.showModal = showModal;
+    }
 }
