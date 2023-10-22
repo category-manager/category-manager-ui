@@ -2,6 +2,12 @@
     <app-search-results class="search-result-container-1 scroll-container" hidden>
 
     </app-search-results>
+    <label>Realtime operations</label>
+    <div class="container-2 flex-flow-row">
+        <button (click)="onCreate()" class="button-margin button-style" type="button">Add new Category</button>
+        <button (click)="onDelete()" class="button-margin button-style" type="button">Delete Category</button>
+        <button (click)="onImport()" class="button-margin button-style" type="button">Import From DB</button>
+    </div>
     <label>Root Categories</label>
     <div class="flex-flow-row container-1 scroll-container">
         <!-- This is where your root categories go -->
@@ -22,10 +28,5 @@
         <div *ngFor="let unlinkedCat of groupedCategories.unlinkedCategories;" class="category-li">
             <li><a [routerLink]="['/', unlinkedCat]" routerLinkActive="active"  target="_blank">{{ unlinkedCat }}</a></li>
         </div>
-    </div>
-    <label>Realtime operations</label>
-    <div class="container-2 flex-flow-row">
-        <button (click)="onCreate()" class="button-margin button-style" type="button">Add new Category</button>
-        <button (click)="onDelete()" class="button-margin button-style" type="button">Delete Category</button>
     </div>
 </div>

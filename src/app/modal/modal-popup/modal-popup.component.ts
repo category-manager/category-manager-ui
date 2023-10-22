@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, SimpleChange } from '@angular/core';
-import { InternalDataService } from '../internal-data.service';
+import { InternalDataService } from '../../internal-data.service';
 
 @Component({
   selector: 'app-modal-popup',
@@ -25,6 +25,7 @@ export class ModalPopupComponent {
   onClose() {
     this.showModal = false;
     this.showModalEvent.emit(this.showModal);
+    location.reload();
   }
 
 }

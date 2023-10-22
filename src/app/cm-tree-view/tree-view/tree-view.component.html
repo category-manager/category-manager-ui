@@ -1,11 +1,14 @@
+<app-modal-popup [showModal]="showModal" [viewNumber]="viewNumber" (showModalEvent)="setModalView($event)"></app-modal-popup>
 <div class="flex-flow-column">
     <app-logo class="tree-view-logo"></app-logo>
     <label>Ancestor Paths</label>
     <div class="tree-view-container-1">
             <!-- Add SVG for ancestor paths  -->
+            <svg #ancestor></svg>
     </div>
     <label>Descendant Paths</label>
     <div class="tree-view-container-1">
         <!-- Add SVG for descendant paths -->
+        <svg #descendant></svg>
     </div>
 </div>

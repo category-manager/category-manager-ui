@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TreeViewComponent } from './tree-view/tree-view.component';
 import { RouterModule } from '@angular/router';
 import { CmToolbarModule } from '../cm-toolbar/cm-toolbar.module';
+import { ModalModule } from '../modal/modal.module';
 
 
 
@@ -13,7 +14,8 @@ import { CmToolbarModule } from '../cm-toolbar/cm-toolbar.module';
   imports: [
     CommonModule,
     RouterModule,
-    CmToolbarModule
+    CmToolbarModule,
+    ModalModule
   ],
   exports: [
     TreeViewComponent

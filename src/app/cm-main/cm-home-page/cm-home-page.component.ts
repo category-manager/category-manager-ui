@@ -49,6 +49,12 @@ export class CmHomePageComponent {
   onDelete() {
     this.modalEvent.emit([true, 1]);
   }
+  onImport() {
+    this.categoriesService.importFromDb()
+      .then(sub => {
+        sub.subscribe(res => alert('flush and DB Import complete!'))
+      });
+  }
 
 }
 function output(): (target: CmHomePageComponent, propertyKey: "searchResult") => void {

@@ -10,6 +10,11 @@ import { Observable } from 'rxjs';
 })
 export class CategoriesService {
 
+  async importFromDb(): Promise<Observable<Object>> {
+    const url: string = "http://localhost:8090/api/categories/import";
+    return await this.http.get(url);
+  }
+
   constructor(private http: HttpClient) { }
 
   public getCategoryById(id: string): Category {
@@ -29,43 +34,15 @@ export class CategoriesService {
     return response;
   }
 
-  public getCategoryHierarchyById(id: string): CategoryResponse {
+  public async getCategoryHierarchyById(id: string | any, isDescendant: boolean): Promise<Observable<CategoryResponse>> {
     const url: string = "http://localhost:8090/api/categories/hierarchy/"
-    let response: CategoryResponse = new CategoryResponse();
-    const onSuccess = (v: any) => {
-      response = v;
-    };
-
-    this.http.get(url + id).subscribe({
-      next: onSuccess,
-      error: (err) => { console.log(err);
-      },
-      complete: () => {}
-    })
-    
-    return response;
+    return await this.http.get<CategoryResponse>(url + id + '?descendants=' + isDescendant);
   }
 
   public async getGroupedCategories(): Promise<Observable<GroupedCategoriesResponse>> {
     console.log('grouped categories API called ');
     
     const url: string = "http://localhost:8090/api/categories/all";
- /*   
-    let response: GroupedCategoriesResponse = new GroupedCategoriesResponse();
-    const onSuccess = (v: any) => {
-      response = v;
-    };
-
-    this.http.get(url).subscribe({
-      next: onSuccess,
-      error: (err) => {
-        console.log(err);
-      },
-      complete: () => {console.log('completed group cat fetch now.');
-
-      }
-    })
-    */
     return await this.http.get<GroupedCategoriesResponse>(url);
   }
 

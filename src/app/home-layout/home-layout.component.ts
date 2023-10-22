@@ -25,8 +25,8 @@ export class HomeLayoutComponent {
     this.toggleView(prop);
   }
 
-    // BELOW FUNCTION CAPTURES EVENT FROM 'MODAL-POPUP' CHILD-COMPONENT.
-    setModalView(showModal: boolean) {
-      this.showModal = showModal;
-    }
+  // BELOW FUNCTION CAPTURES EVENT FROM 'MODAL-POPUP' CHILD-COMPONENT.
+  setModalView(showModal: boolean) {
+    this.showModal = showModal;
+  }
 }

@@ -218,6 +218,7 @@ li {
     margin: auto;
 }
 .tree-view-container-1 {
+    overflow: auto;
     display: absolute;
     height: 70vh;
     width: 79vw;

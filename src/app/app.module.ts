@@ -9,13 +9,13 @@ import { CmTreeViewModule } from './cm-tree-view/cm-tree-view.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
-import { ModalPopupComponent } from './modal-popup/modal-popup.component';
+import { ModalPopupComponent } from './modal/modal-popup/modal-popup.component';
+import { ModalModule } from './modal/modal.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeLayoutComponent,
-    ModalPopupComponent
+    HomeLayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +24,8 @@ import { ModalPopupComponent } from './modal-popup/modal-popup.component';
     CmMainModule,
     CmToolbarModule,
     CmTreeViewModule,
-    RouterModule
+    RouterModule,
+    ModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]
