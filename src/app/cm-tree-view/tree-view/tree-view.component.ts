@@ -23,6 +23,7 @@ export class TreeViewComponent {
 
   showModal: boolean = false;
   viewNumber: number = 2; // CREATE: 0, DELETE: 1, UPDATE: 2
+  id!: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -34,13 +35,13 @@ export class TreeViewComponent {
     var data = this.route.snapshot.data;
     this.categoryService.getCategoryHierarchyById(categoryId, false)
       .then(observeable => observeable.subscribe(res => {
-        this.ancestorHierarchicalData = res.children[0];
+        this.ancestorHierarchicalData = res;
         this.renderTree(this.ancestorHierarchicalData, false, this.ancestorSvg);
       }));
       
     this.categoryService.getCategoryHierarchyById(categoryId, true)
     .then(observeable => observeable.subscribe(res => {
-      this.descendantHierarchicalData = res.children[0];
+      this.descendantHierarchicalData = res;
       this.renderTree(this.descendantHierarchicalData, true, this.descendantSvg);
     }));
       
@@ -126,6 +127,7 @@ export class TreeViewComponent {
         .text(d => d.data.id)
         .on('click', (event, d) => {
           console.log(event, d);
+          this.id = d.data.id;
           this.setModalView(true);
           
         })

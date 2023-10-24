@@ -4,11 +4,30 @@ import { CategoryResponse } from './models/category-response';
 import { GroupedCategoriesResponse } from './models/grouped-categories-response';
 import { Category } from './models/category';
 import { Observable } from 'rxjs';
+import { CategoryRequest } from './models/category-request';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriesService {
+  async deleteCategory(id: string) {
+    const url: string = "http://localhost:8090/api/categories/delete?id=";
+    var body = '';
+    console.log(id);
+    return await this.http.delete(url + id);
+  }
+  async updateCategory(request: CategoryRequest) {
+    const url: string = "http://localhost:8090/api/categories/update";
+    var body = '';
+    console.log(request);
+    return await this.http.post(url, request);
+  }
+  async createNewCategory(request: CategoryRequest) {
+    const url: string = "http://localhost:8090/api/categories/create";
+    var body = '';
+    console.log(request.toString());
+    return await this.http.post(url, request);
+  }
 
   async importFromDb(): Promise<Observable<Object>> {
     const url: string = "http://localhost:8090/api/categories/import";

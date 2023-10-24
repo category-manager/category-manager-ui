@@ -1,52 +1,57 @@
 <div id="modal-container-1" *ngIf="showModal">
     <div class="modal-container-2">
         <button (click)="onClose()" class="search-button" style="float: right;">close</button>
-        
+
         <div class="flex-flow-column">
-<!-- New category section -->
+            <!-- New category section -->
+            <form #createForm="ngForm" class="flex-flow-column modal-container-3">
+                <div class="flex-flow-column " *ngIf="viewNumber == 0">
 
-            <div class="flex-flow-column modal-container-3" *ngIf="viewNumber == 0">
-                <label for="categoryId">categoryId</label>
-                <input class="modal-input" type="text" name="categoryId">
-                
-                <label for="parents">parents</label>
-                <input class="modal-input" placeholder="comma separated" type="text" name="parents" />
-                
-                <label for="data" >Json Data</label>
-                <input class="modal-input" placeholder="valid json data only" type="text" style="height: 5em;" name="data" />
-                
-                
-                <button class="search-button modal-button" type="submit">save</button>
+                    <label for="categoryId">categoryId</label>
+                    <input [(ngModel)]="categoryId" class="modal-input" type="text" name="categoryId" ngModel />
 
-            </div>
+                    <label for="parents">parents</label>
+                    <input [(ngModel)]="parents" class="modal-input" placeholder="comma separated" type="text" name="parents" ngModel />
 
-<!-- Delete section -->
+                    <label for="data">Json Data</label>
+                    <input [(ngModel)]="data" class="modal-input" placeholder="valid json data only" type="text" style="height: 5em;"
+                        name="data" ngModel />
 
-            <div class="flex-flow-column modal-container-3" *ngIf="viewNumber == 1">
-                <label for="id">Category Id</label>
-                <input class="modal-input" type="text" name="id">
-                <button class="search-button modal-button" type="submit">delete</button>
+                    <button (click)="onCreate()" class="search-button modal-button" type="submit">save</button>
+                    <!-- {{ createForm.value | json }} -->
+                </div>
+            </form>
+            <!-- Delete section -->
+            <form #deleteForm="ngForm" class="flex-flow-column modal-container-3">
+                <div class="flex-flow-column " *ngIf="viewNumber == 1">
 
-            </div>
+                    <label for="id">Category Id</label>
+                    <input [(ngModel)]="categoryId" class="modal-input" type="text" name="id" ngModel>
+                    <button (click)="onDelete()" class="search-button modal-button" type="submit">delete</button>
+                    <!-- {{ deleteForm.value | json }} -->
+                </div>
+            </form>
+            <!-- UPDATE section -->
+            <form #updateForm="ngForm" class="flex-flow-column modal-container-3">
+                <div class="flex-flow-column " *ngIf="viewNumber == 2">
 
-<!-- UPDATE section -->
+                    <label for="id">Category Id</label>
+                    <input class="modal-input" type="text" name="id" [(ngModel)]="categoryId" value="{{ categoryId }}" placeholder="{{ categoryId }}" readonly ngModel>
 
-            <div class="flex-flow-column modal-container-3" *ngIf="viewNumber == 2">
-                <label for="id">Category Id</label>
-                <input class="modal-input" type="text" name="id" readonly>
+                    <label for="parents">parents</label>
+                    <input [(ngModel)]="parents" class="modal-input" placeholder="comma separated" type="text" name="parents" />
 
-                <label for="parents">parents</label>
-                <input class="modal-input" placeholder="comma separated" type="text" name="parents" />
-                
-                <label for="data" >Json Data</label>
-                <input class="modal-input" placeholder="valid json data only" type="text" style="height: 5em;" name="data" />
-                <button class="search-button modal-button" type="submit">update</button>
-
-            </div>
-
+                    <label for="data">Json Data</label>
+                    <input [(ngModel)]="data" class="modal-input" placeholder="valid json data only" type="text" style="height: 5em;"
+                        name="data" />
+                    <button (click)="onUpdate()" class="search-button modal-button" type="submit">update</button>
+                    <!-- {{ updateForm.value | json }} -->
+                </div>
+            </form>
         </div>
+        {{ displayMessage }}
     </div>
     <div>
-        
+
     </div>
 </div>

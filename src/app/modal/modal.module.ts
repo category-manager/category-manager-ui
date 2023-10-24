@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalPopupComponent } from './modal-popup/modal-popup.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -8,7 +9,8 @@ import { ModalPopupComponent } from './modal-popup/modal-popup.component';
     ModalPopupComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     ModalPopupComponent

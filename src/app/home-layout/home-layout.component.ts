@@ -10,6 +10,13 @@ export class HomeLayoutComponent {
   prop: any;
   showModal: boolean = false;
   viewNumber: number = 0; // CREATE: 0, DELETE: 1, UPDATE: 2
+  searchQuery: string = '';
+  
+  constructor() {}
+
+  ngOnChanges() {
+    
+  }
 
   toggleView(propArray: any) {
     console.log('toggle called');
@@ -23,6 +30,10 @@ export class HomeLayoutComponent {
     console.log('modal data set in HomeLayout');
     this.prop = prop;
     this.toggleView(prop);
+  }
+
+  setSearchQuery(searchQuery: any) {
+    this.searchQuery = searchQuery;
   }
 
   // BELOW FUNCTION CAPTURES EVENT FROM 'MODAL-POPUP' CHILD-COMPONENT.

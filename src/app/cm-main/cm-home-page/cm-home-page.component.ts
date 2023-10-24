@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CategoriesService } from 'src/app/categories.service';
 import { InternalDataService } from 'src/app/internal-data.service';
-import { Category } from 'src/app/models/category';
 import { GroupedCategoriesResponse } from 'src/app/models/grouped-categories-response';
 import { TypeaheadService } from 'src/app/typeahead.service';
 @Component({
@@ -15,7 +14,6 @@ export class CmHomePageComponent {
   @Output("modalEvent")
   modalEvent = new EventEmitter();
 
-  searchResult: Category = new Category();
   groupedCategories: GroupedCategoriesResponse  = new GroupedCategoriesResponse();
   linkedCats !: Array<String>;
   unlinkedCats !: Array<String>;
@@ -56,8 +54,6 @@ export class CmHomePageComponent {
       });
   }
 
-}
-function output(): (target: CmHomePageComponent, propertyKey: "searchResult") => void {
-  throw new Error('Function not implemented.');
+
 }
 
