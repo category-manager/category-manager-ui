@@ -1,27 +1,70 @@
-# CategoryManagerUi
+# CATEGORY-MANAGER-UI
+<hr>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.9.
+## INTRO
+This application serves two purposes, one it demonstrates some of the features of <a href="" target="_blank" > Category Manager library</a>.
+Two, it's also a tool that lets you do some basic data manipulation and searching of the hierarchical information stored in your application.
 
-## Development server
+# Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+install Angular CLI: 15.2.9 , Node: 18.18.0. Or other compatible versions.
 
-## Code scaffolding
+    npm install
+    npm build
+    ng serve -o
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+<small>I will provide a docker-compose file soon. <small> 
 
-## Build
+## Technology used
+The application is built using Angular and D3.js for data visualization, spring-boot service to service as backend
+which uses CATEGORY-MANAGER for its categorical data management.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Postgres Db is used to store and retrieve the category information. Caffeine cache is used to cache some of the API
+response that are expensive. 
 
-## Running unit tests
+## Features
+- The application provides features like Typeahead to find the category you are trying to find, each type-ahead query will 
+ yield at most 35 possible suggestions or matches.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Lets you import category information from db using Category-manager lib. There are apis to generate ancestor, descendant paths.
+ 
+- You can make CRUD operations on your hierarchical data using rest APIs . Overall an intuitive backend service built using 
+some interesting algorithms and data-structures.
 
-## Running end-to-end tests
+- You will see some interesting data-visualization for the ancestor and descendant paths for the categorical data as well.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+## Screenshots
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<img src="./assets/home.png" />
+<img src="./assets/typeahead.png" />
+<img src="./assets/create.png" />
+<img src="./assets/update.png" />
+<img src="./assets/ancestor-paths.png" />
+<img src="./assets/descendant-paths.png" />
+
+
+
+##### <hr>
+<div id="thank-you-note">
+    <h3>Thank you !</h3>
+    <p><b> Thank you for taking interest, hope my work contributes to your application, makes life easier and becomes part 
+    of your programming journey ^ ^ </b> </p>
+    
+<p>
+    Your feedback, suggestion, contribution would be very valuable to me. So let me know if any :)
+</p>
+</div>
+
+##### <hr>
+<div id="contact">
+    <h3>Let's Stay Connected !! </h3>
+    <ul>
+        <li>
+            Here is the link to my <a href="https://www.linkedin.com/in/sudarshan-bhat-52052a173/" target="_blank"> LinkedIn </a>
+        </li>
+        <li>
+            You can write to me <a href="mailto:sudarshanrbhat.srb2@gmail.com" target="_blank"> on Gmail  </a>
+        </li>
+    </ul>
+</div>
