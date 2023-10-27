@@ -10,7 +10,6 @@ Two, it's also a tool that lets you do some basic data manipulation and searchin
 install Angular CLI: 15.2.9 , Node: 18.18.0. Or other compatible versions.
 
     npm install
-    npm build
     ng serve -o
 
 <small>I will provide a docker-compose file soon. <small> 
